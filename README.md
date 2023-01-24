@@ -51,18 +51,56 @@ This type of counter is normally referred to as a Down Counter, (CTD). In a bina
 
 
 ### PROGRAM 
+```python
 /*
 Program for flipflops  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
+Developed by: karnan k
+RegisterNumber:  22003223
 */
 
+UP COUNTER:
 
+
+module UC(input CLK,input reset,output[0:3]counter);
+reg[0:3]counter_up;
+always@(posedge CLK or posedge reset)
+begin 
+if(reset)
+counter_up<=4'd0;
+else
+counter_up<=counter_up+4'd1;
+end
+assign counter=counter_up;
+endmodule
+
+
+DOWN COUNTER:
+
+module DC(input CLK,input reset,output[0:3]counter);
+reg[0:3]counter_down;
+always@(posedge CLK or posedge reset)
+begin 
+if(reset)
+counter_down<=4'd0;
+else
+counter_down<=counter_down-4'd1;
+end
+assign counter=counter_down;
+endmodule
+```
 
 
 
 
 ### RTL LOGIC UP COUNTER AND DOWN COUNTER  
+
+Up Counter:
+![rtl](rt1.png)
+
+
+Down Counter:
+
+![rtl](rt2.png)
 
 
 
@@ -74,15 +112,27 @@ RegisterNumber:
 
 ### TIMING DIGRAMS FOR COUNTER  
 
+UP COUNTER:
 
+![tim](tr1.png)
 
+DOWN COUNTER:
 
+![tim](tr2.png)
 
 ### TRUTH TABLE 
 
+UP COUNTER :
+
+![truth](t1.png)
+
+DOWN COUNTER :
+
+![truth](t2.png)
 
 
 
 
 
 ### RESULTS 
+The 4 bit up and down counters has been implemented and validated the functionality.
